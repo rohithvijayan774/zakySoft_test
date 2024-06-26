@@ -85,54 +85,68 @@ class UsersList extends StatelessWidget {
                               ? const Center(
                                   child: Text('No user found!'),
                                 )
-                              : ListView.builder(
-                                  itemCount: controller.results.length,
-                                  itemBuilder: (context, index) {
-                                    return Card(
-                                      child: ListTile(
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .push(MaterialPageRoute(
-                                            builder: (context) => UserDetails(
-                                                name: controller
-                                                    .results[index].name,
-                                                username: controller
-                                                    .results[index].username,
-                                                email: controller
-                                                    .results[index].email,
-                                                address: controller
-                                                    .results[index].address,
-                                                phone: controller
-                                                    .results[index].phone,
-                                                website: controller
-                                                    .results[index].website,
-                                                company: controller
-                                                    .results[index].company),
-                                          ));
-                                        },
-                                        title: Text(
-                                          '${controller.results[index].name}',
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        leading: const CircleAvatar(
-                                          child: Icon(Icons.person),
-                                        ),
-                                        subtitle: Row(
-                                          children: [
-                                            const Text(
-                                              'Company : ',
-                                              style: TextStyle(
+                              : snapshot.connectionState == ConnectionState.none
+                                  ? const Center(
+                                      child: Text(
+                                          'Oops... No Network Connection!!!'),
+                                    )
+                                  : ListView.builder(
+                                      itemCount: controller.results.length,
+                                      itemBuilder: (context, index) {
+                                        return Card(
+                                          child: ListTile(
+                                            onTap: () {
+                                              Navigator.of(context)
+                                                  .push(MaterialPageRoute(
+                                                builder: (context) =>
+                                                    UserDetails(
+                                                        name: controller
+                                                            .results[index]
+                                                            .name,
+                                                        username: controller
+                                                            .results[index]
+                                                            .username,
+                                                        email: controller
+                                                            .results[index]
+                                                            .email,
+                                                        address: controller
+                                                            .results[index]
+                                                            .address,
+                                                        phone: controller
+                                                            .results[index]
+                                                            .phone,
+                                                        website: controller
+                                                            .results[index]
+                                                            .website,
+                                                        company: controller
+                                                            .results[index]
+                                                            .company),
+                                              ));
+                                            },
+                                            title: Text(
+                                              '${controller.results[index].name}',
+                                              style: const TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
-                                            Text(
-                                                '${controller.results[index].company!.name}'),
-                                          ],
-                                        ),
-                                      ),
+                                            leading: const CircleAvatar(
+                                              child: Icon(Icons.person),
+                                            ),
+                                            subtitle: Row(
+                                              children: [
+                                                const Text(
+                                                  'Company : ',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                    '${controller.results[index].company!.name}'),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     );
-                                  },
-                                );
                         }),
                       ),
                     ),

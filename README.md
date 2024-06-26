@@ -13,16 +13,11 @@ This application showing the Employees details. This project is completely build
 
 
 
-## App apk
-
-    https://drive.google.com/file/d/1YES26d3K7xL8t3OmRZAW1ytL2dkNSCVx/view?usp=sharing
-
-
 ## Getting Started
 
 Step-1: Download or clone this repository -
 
-    git clone https://github.com/rohithvijayan774/KBJN_Test
+    git clone https://github.com/rohithvijayan774/zakySoft_test
 
 Step-2: Go to project root and execute the following command in console to get the required dependencies -
 
