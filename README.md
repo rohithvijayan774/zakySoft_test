@@ -12,7 +12,6 @@ This application showing the Employees details. This project is completely build
 **Location:** Kozhikode, Kerala  
 
 
-
 ## Getting Started
 
 Step-1: Download or clone this repository -
